@@ -20,6 +20,7 @@ class Calls extends Migration
             $table->string('name')->default('');
             $table->string('opinion')->default('Neutral');
             $table->string('phone')->default('');
+            $table->timestamps();
         });
 
     }

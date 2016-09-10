@@ -13,19 +13,19 @@ $(window).load(function(){
       value: negative,
       color: "#f56954",
       highlight: "#f56954",
-      label: "negetive"
+      label: "Negative"
     },
     {
       value: positive,
       color: "#00a65a",
       highlight: "#00a65a",
-      label: "positive"
+      label: "Positive"
     },
     {
       value: neutral,
       color: "#3c8dbc",
       highlight: "#3c8dbc",
-      label: "neutral"
+      label: "Neutral"
     }
   ];
   var pieOptions = {
@@ -52,7 +52,7 @@ $(window).load(function(){
     //String - A legend template
     legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>",
     //String - A tooltip template
-    tooltipTemplate: "<%=value %> <%=label%> users"
+    tooltipTemplate: "<%=value %> Users <%=label%> "
   };
   //Create pie or douhnut chart
   // You can switch between pie and douhnut using the method below.
@@ -67,13 +67,13 @@ $(window).load(function(){
       value: pickup,
       color: "#f56954",
       highlight: "#f56954",
-      label: "negetive"
+      label: "Picked Up"
     },
     {
       value: total-pickup,
       color: "#00a65a",
       highlight: "#00a65a",
-      label: "positive"
+      label: "Didn't Answer"
     }
   ];
 
@@ -101,7 +101,8 @@ $(window).load(function(){
     //String - A legend template
     legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>",
     //String - A tooltip template
-    tooltipTemplate: "<%=value %> <%=label%> users"
+    tooltipTemplate: "<%=value %> Users <%=label%> ",
+
   };
   //Create pie or douhnut chart
   // You can switch between pie and douhnut using the method below.
@@ -112,4 +113,3 @@ $(window).load(function(){
 
 
 });
-

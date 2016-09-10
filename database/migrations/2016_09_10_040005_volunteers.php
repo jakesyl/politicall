@@ -13,7 +13,7 @@ class Volunteers extends Migration
     public function up()
     {
          Schema::create('volunteers', function (Blueprint $table) {
-            $table->bigInteger('id');
+            $table->string('id');
             $table->string('email', 255);
 	    $table->string('name', 255)->default('');
         });

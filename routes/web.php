@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('/api/create', 'VolunteerController@makeUser');
-Route::post('/api/login', 'VolunteerController@makeUser');
+Route::post('/api/login', 'VolunteerController@loginUser');
 Route::post('/api/call', 'CallController@makeCall');
-Route::get('/api/calls', 'CallController@makeCall');
+Route::get('/api/calls', 'CallController@getCalls');
+Route::get('/api/toCall', 'CallController@toCall');

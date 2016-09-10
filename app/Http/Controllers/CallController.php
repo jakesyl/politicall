@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use DB;
-use Request;
+
 class CallController extends Controller
 {
     /**
@@ -18,10 +18,10 @@ class CallController extends Controller
       DB::table('calls')
         ->insert(
           [
-            'callerId' => $request->input('id')
+            'callerId' => $request->input('id'),
             'duration' => $request->input('duration'),
             'pickup' => $request->input('pickup'),
-            'opinion' => $request->input('opinion')
+            'opinion' => $request->input('opinion'),
             'name' => $request->input('name'),
             'phone' => $request->input('phone')
           ]
@@ -44,5 +44,15 @@ class CallController extends Controller
       return DB::table('calls')
         ->where('callerId', $request->input('callerId'))
         ->get();
+    }
+
+    /**
+    * @author Jake Sylvestre
+    * return one person who was not been called yet
+    */
+    public function toCall(){
+      return DB::table('contacts')
+        ->where('toCall', 0)
+        ->first();
     }
 }

@@ -50,6 +50,7 @@ class VolunteerController extends Controller
 		$volunteer = DB::table('volunteers')
 			->where('id', $request->input('id'))
 			->first();
+		
 		if (!(isset($volunteer) && !(empty($volunteer)))){
 			return Response::json(array(
 					'msg' => 'This account doesn\'t exists.'

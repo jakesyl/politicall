@@ -14,12 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 Route::get('addContact','adminAddContact@addAContactGet');
 Route::post('addContact','adminAddContact@addAContact'); 
 Route::get('/api/create', 'VolunteerController@makeUser');
 
-=======
 
 Route::post('/api/create', 'VolunteerController@makeUser');
 Route::post('/api/login', 'VolunteerController@loginUser');
@@ -27,4 +25,3 @@ Route::post('/api/call', 'CallController@makeCall');
 Route::get('/api/calls', 'CallController@getCalls');
 Route::get('/api/toCall', 'CallController@toCall');
 Route::get('/call/{id}', 'CallController@getCall');
->>>>>>> 3ddd127fda91e55ecbd509b48562af793ccea4e2

@@ -10,8 +10,7 @@ class adminAddContact extends Controller
 {
 	public function addAContact(Request $request){
 		$phone = $request->input('phone');
-		$name = $request->input('name');
-		DB::table('contact')->insert(['name'=>$name,'phone'=>$phone]);
+		DB::table('contact')->insert(['phone'=>$phone]);
 		return redirect('/addContact');
 	}
 	public function addAContactGet(){

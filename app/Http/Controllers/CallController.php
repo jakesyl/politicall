@@ -55,4 +55,17 @@ class CallController extends Controller
         ->where('toCall', 0)
         ->first();
     }
+
+    public function getCall($id){
+      $call = DB::table('calls')
+        ->where('id', $id)
+        ->first();
+
+      if(count($call)==0){
+        return view('errors.404');
+      }
+      return view('call', ['call' => $call]);
+
+
+    }
 }

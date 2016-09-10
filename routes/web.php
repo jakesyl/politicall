@@ -20,3 +20,4 @@ Route::post('/api/login', 'VolunteerController@loginUser');
 Route::post('/api/call', 'CallController@makeCall');
 Route::get('/api/calls', 'CallController@getCalls');
 Route::get('/api/toCall', 'CallController@toCall');
+Route::get('/call/{id}', 'CallController@getCall');

@@ -25,3 +25,4 @@ Route::post('/api/call', 'CallController@makeCall');
 Route::get('/api/calls', 'CallController@getCalls');
 Route::get('/api/toCall', 'CallController@toCall');
 Route::get('/call/{id}', 'CallController@getCall');
+Route::get('/api/average/{id}', 'CallController@getAverageCallLengthForUser');

@@ -126,8 +126,33 @@ class CallController extends Controller
         return 0;
       }
       return $duration/$count;
-
     }
+
+    /**
+    * @author Jake Sylvestre
+    * Get average call length
+    * precondition, calls in db
+    */
+    public function getAverageCallLengthForUser($id){
+      $calls = DB::table('calls')
+        ->select('duration')
+	->where('callerId', $id)
+        ->get();
+
+      $duration = 0;
+      $count = 0;
+      foreach($calls as $call){
+        $count ++;
+        $time = $this->getMinutesHoursFromDuration($call->duration);
+        $callTime = $time['minutes'] * 60 + $time['seconds'];
+        $duration += $callTime;
+      }
+      if($count==0){
+        return json_encode(["seconds" => 0]);
+      }
+      return json_encode(["seconds" => $duration/$count ]);
+    }
+
     /**
     * @author Jake Sylvestre
     * @param timestamp in a string format

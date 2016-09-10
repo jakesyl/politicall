@@ -6,22 +6,28 @@
 
 
 @section('main-content')
-	<div class="container spark-screen">
-		<div class="container">
-  <h2>Create a Contact:</h2>
-  <form>
-    <div class="form-group">
-      <label for="phone">Phone:</label>
-      <input type="text" class="form-control" id="phone" placeholder="+123456789">
-    </div>
+<div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add Contacts</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" method="POST">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="phone" class="col-sm-2 control-label">Phone Numbers</label>
 
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="John Doe">
-    </div>
-    
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-</div>
-	</div>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="123456789">
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="submit" class="btn btn-info center">Add Contacts</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
 @endsection

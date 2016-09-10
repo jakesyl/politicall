@@ -22,9 +22,18 @@ class CallController extends Controller
             'duration' => $request->input('duration'),
             'pickup' => $request->input('pickup'),
             'opinion' => $request->input('opinion')
-            'name' => $request->input('name')
+            'name' => $request->input('name'),
+            'phone' => $request->input('phone')
           ]
         );
+
+      DB::table('contacts')
+        ->where('phone', $request->input('phone'))
+        ->update([
+              'toCall' => 1
+            ]
+          );
+
     }
 
     /**

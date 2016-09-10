@@ -15,9 +15,6 @@ class Contacts extends Migration
          Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('phone');
-            $table->string('name')->default('');
-            $table->string('opinion')->default('');
-            $table->boolean('donated')->default(0);
             $table->boolean('toCall')->default(0);;
         });
 

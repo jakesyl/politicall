@@ -28,8 +28,27 @@
 		          </div>
 		          <!-- /.info-box -->
 	</div>
-</div>
 	<!-- ./col -->
+
+
+	{{--@if($call->opinion=="Positive")--}}
+	<!-- ./col -->
+	<div class="col-md-6">
+           <div class="info-box">
+             <span class="info-box-icon bg-green"><i class="fa fa-thumbs-o-up"></i></span>
+
+             <div class="info-box-content">
+               <span class="info-box-text">Reaction</span>
+               <span class="info-box-number">Positive</span>
+             </div>
+             <!-- /.info-box-content -->
+           </div>
+           <!-- /.info-box -->
+         </div>
+         <!-- /.col -->
+		 <!-- ./col -->
+	 </div>
+
 	<div class="row">
 		<div class="col-md-12">
 			<!-- The time line -->

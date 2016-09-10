@@ -146,7 +146,7 @@
 								<h3 class="timeline-header"><a href="#">Survey</a></h3>
 
 								<div class="timeline-body">
-											User completes the survey about the call. The users opinion was {{$call->opinion}}.
+											User completes the survey about the call.  @if($call->name != '') {{$call->name}}  @else {{$call->phone}} @endif 's opinion was {{$call->opinion}}.
 								</div>
 
 								<div class="timeline-footer">

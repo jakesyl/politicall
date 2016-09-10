@@ -14,7 +14,7 @@ class Calls extends Migration
     {
          Schema::create('calls', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('callerId');
+            $table->string('callerId');
             $table->string('duration')->default('');
             $table->boolean('pickup')->default(0);
             $table->string('name')->default('');

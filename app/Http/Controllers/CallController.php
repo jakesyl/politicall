@@ -18,10 +18,11 @@ class CallController extends Controller
       DB::table('calls')
         ->insert(
           [
-            'phone' => $request->input('phone'),
-            'name' => $request->input('name'),
+            'callerId' => $request->input('id')
+            'duration' => $request->input('duration'),
+            'pickup' => $request->input('pickup'),
             'opinion' => $request->input('opinion')
-            'toCall' => $request->input('toCall')
+            'name' => $request->input('name')
           ]
         );
     }

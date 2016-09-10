@@ -67,6 +67,11 @@ class CallController extends Controller
         ->first();
     }
 
+
+    /**
+    * @author Jake Sylvestre
+    * get data about a call by the call id
+    */
     public function getCall($id){
       $call = DB::table('calls')
         ->where('id', $id)
@@ -81,15 +86,42 @@ class CallController extends Controller
         ->first();
 
       $call->pickup = (bool) $call->pickup;
-
       return view('call', [
           'call' => $call,
+          'callDurationSeconds' => $this->getSecondsInCall($call->duration),
           'afterCall' => $this->getPostTime($call->created_at, $call->duration),
-          'volunteer' => $volunteer
+          'volunteer' => $volunteer,
+          'averageLength' => $this->getAverageCallLength()
         ]
       );
     }
+    /**
+    * @author Jake Sylvestre
+    * get call length in seconds from minute:second form
+    */
+    protected function getSecondsInCall($duration){
+        $time = $this->getMinutesHoursFromDuration($duration);
+        return $time['minutes'] * 60 + $time['seconds'];
+    }
 
+    /**
+    * @author Jake Sylvestre
+    * Get average call length
+    */
+    protected function getAverageCallLength(){
+      $calls = DB::table('calls')
+        ->select('duration')
+        ->get();
+      $duration = 0;
+      $count = 0;
+      foreach($calls as $call){
+        $count ++;
+        $time = $this->getMinutesHoursFromDuration($call->duration);
+        $callTime = $time['minutes'] * 60 + $time['seconds'];
+        $duration += $callTime;
+      }
+      return $duration/$count;
+    }
     /**
     * @author Jake Sylvestre
     * @param timestamp in a string format

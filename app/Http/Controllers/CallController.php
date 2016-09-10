@@ -26,4 +26,14 @@ class CallController extends Controller
           ]
         );
     }
+
+    /**
+    * @author Jake Sylvestre
+    * get list of all calls
+    */
+    public function getCalls(Request $request){
+      return DB::table('calls')
+        ->where('callerId', $request->input('callerId'))
+        ->get();
+    }
 }

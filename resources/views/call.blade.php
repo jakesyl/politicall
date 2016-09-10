@@ -28,8 +28,80 @@
 		          </div>
 		          <!-- /.info-box -->
 	</div>
-</div>
 	<!-- ./col -->
+
+
+	@if($call->opinion=="Positive")
+	<!-- ./col -->
+	<div class="col-md-6">
+           <div class="info-box">
+             <span class="info-box-icon bg-green"><i class="fa fa-thumbs-o-up"></i></span>
+
+             <div class="info-box-content">
+               <span class="info-box-text">Reaction</span>
+               <span class="info-box-number">Positive</span>
+             </div>
+             <!-- /.info-box-content -->
+           </div>
+           <!-- /.info-box -->
+         </div>
+         <!-- /.col -->
+		 <!-- ./col -->
+	 </div>
+
+	 @elseif($call->opinion=="Neutral")
+	 <!-- ./col -->
+ 	<div class="col-md-6">
+            <div class="info-box">
+              <span class="info-box-icon bg-yellow"><i class="fa fa-stop"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Reaction</span>
+                <span class="info-box-number">Neutral</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+ 		 <!-- ./col -->
+ 	 </div>
+ @elseif($call->opinion=="Negative")
+	 <!-- ./col -->
+ 	<div class="col-md-6">
+            <div class="info-box">
+              <span class="info-box-icon bg-red"><i class="fa fa-thumbs-o-down"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Reaction</span>
+                <span class="info-box-number">Negative</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+ 		 <!-- ./col -->
+ 	 </div>
+@else
+<!-- ./col -->
+<div class="col-md-6">
+				 <div class="info-box">
+					 <span class="info-box-icon bg-yellow"><i class="fa fa-stop"></i></span>
+
+					 <div class="info-box-content">
+						 <span class="info-box-text">Reaction</span>
+						 <span class="info-box-number">Neutral</span>
+					 </div>
+					 <!-- /.info-box-content -->
+				 </div>
+				 <!-- /.info-box -->
+			 </div>
+			 <!-- /.col -->
+	<!-- ./col -->
+</div>
+@endif
+
 	<div class="row">
 		<div class="col-md-12">
 			<!-- The time line -->
@@ -110,7 +182,7 @@
 								<h3 class="timeline-header"><a href="#">Conversation</a></h3>
 
 								<div class="timeline-body">
-										Call lasts for {{$call->duration}} minutes and ends at {{date_format($afterCall, "g:i A")}}
+										Call lasted for {{$call->duration}}  and ends at {{date_format($afterCall, "g:i A")}}
 								</div>
 
 								<div class="timeline-footer">
@@ -127,7 +199,7 @@
 								<h3 class="timeline-header"><a href="#">Survey</a></h3>
 
 								<div class="timeline-body">
-											User completes the survey about the call. The users opinion was {{$call->opinion}}.
+											User completes the survey about the call.  @if($call->name != '') {{$call->name}}  @else {{$call->phone}} @endif 's opinion was {{$call->opinion}}.
 								</div>
 
 								<div class="timeline-footer">

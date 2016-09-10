@@ -64,7 +64,8 @@ class CallController extends Controller
     public function toCall(){
       return DB::table('contacts')
         ->where('toCall', 0)
-        ->first();
+        ->first()
+	->toCall;
     }
 
     public function getCall($id){

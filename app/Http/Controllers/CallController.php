@@ -42,9 +42,19 @@ class CallController extends Controller
     * get list of all calls
     */
     public function getCalls(Request $request){
-      return DB::table('calls')
+      $calls =  DB::table('calls')
         ->where('callerId', $request->input('callerId'))
         ->get();
+
+       foreach($calls as $call){
+		if($call->pickup=1){
+			$call->pickup = True;
+		}
+		else{
+			$call->pickup = False;
+		}
+	}
+	return $calls;
     }
 
     /**

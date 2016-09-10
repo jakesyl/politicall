@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('addContact','adminAddContact@addAContactGet');
+Route::post('addContact','adminAddContact@addAContact'); 
 Route::get('/api/create', 'VolunteerController@makeUser');
 

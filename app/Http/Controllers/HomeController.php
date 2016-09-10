@@ -9,7 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use DB
 /**
  * Class HomeController
  * @package App\Http\Controllers
@@ -33,6 +33,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+	$negative =DB::table('calls')->where("opinion","Negative")->count();
+	$positive =DB::table('calls')->where("opinion","Positive")->count();
+	$neutral =DB::table('calls')->where("opinion","Neutral")->count();
+	$pickupCount = DB::table('calls')->where('pickup',true)->count();
+	$total = DB::table('calls')->count();
+        return view('home',);
     }
 }

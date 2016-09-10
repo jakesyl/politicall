@@ -132,6 +132,6 @@
 	</div>
       <!-- /.row -->
          <!-- /.box -->
-	<script> var negative = 5/*{{$negative}}*/; var positive = 5/*{{$positive}}*/; var neutral = 3/*{{$neutral}}*/; var pickup=13/*{{$pickup}}*/; var total = 25/*{{$total}}*/; 
+	<script> var negative={{$negative}}; var positive ={{$positive}}; var neutral = {{$neutral}}; var pickup={{$pickup}}; var total = {{$total}}; 
 	</script>
 @endsection

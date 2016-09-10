@@ -179,4 +179,8 @@ class CallController extends Controller
           'seconds' => $duration[1]
       ];
     }
+
+    public function index(){
+      return view('calls');
+    }
 }

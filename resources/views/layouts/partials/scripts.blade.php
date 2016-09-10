@@ -19,4 +19,4 @@
       user experience. Slimscroll is required when using the
       fixed layout. -->
 
-
+<script src="/js/graph.js"></script>

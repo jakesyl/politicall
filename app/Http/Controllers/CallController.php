@@ -110,7 +110,7 @@ class CallController extends Controller
     * Get average call length
     * precondition, calls in db
     */
-    protected function getAverageCallLength(){
+    public function getAverageCallLength(){
       $calls = DB::table('calls')
         ->select('duration')
         ->get();

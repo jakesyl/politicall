@@ -17,7 +17,7 @@ class VolunteerController extends Controller
 	* return a 400 if account exists/invalid, 200 if account created
 	*/
 	public function makeUser(Request $request){
-		if( ($request->input('id')==null) || ($request->input('email')==null)){
+		if( ($request->input('id')==null) || ($request->input('email')==null) || ($request->input('name')==null) )){
 			        return Response::json(array(
 				    'msg' => 'The required id or email fields were left blank!'
 				), 400);
@@ -36,6 +36,7 @@ class VolunteerController extends Controller
 						[
 							'id' => $request->input('id'),
 							'email' => $request->input('email')
+							'name' => $request->input('name')
 						]
 				);
 		}

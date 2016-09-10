@@ -61,8 +61,38 @@ class HomeController extends Controller
             'pickup'=>$pickupCount,
             'total'=>$total,
             'aveLen'=>$aveLen,
-            'volunteerCount' => $volunteers
+            'volunteerCount' => $volunteers,
+            'scatterData' => $this->getScatterData()
           ]
       );
+    }
+
+    protected function getScatterData(){
+      $callFunctions = new CallController();
+
+      $calls = DB::Table('calls')
+        ->get();
+
+      $data = [
+          'Neutral' => array(),
+          'Positive' => array(),
+          'Negative' => array()
+      ];
+
+      foreach($calls as $call){
+         $duration = round($callFunctions->getSecondsInCall($call->duration));
+         $hourOfDay = (int) date_format(new \DateTime($call->created_at), "H");
+         $coordinates = [$hourOfDay, $duration];
+         if($call->opinion=='Neutral'){
+           array_push($data['Neutral'], $coordinates);
+         }else if($call->opinion == 'Positive'){
+           array_push($data['Positive'], $coordinates);
+         }else{
+           array_push($data['Negative'], $coordinates);
+         }
+      }
+
+      return (object) $data;
+
     }
 }

@@ -20,3 +20,7 @@
       fixed layout. -->
 
 <script src="/js/graph.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/scatter.js"></script>

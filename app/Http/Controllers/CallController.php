@@ -100,7 +100,7 @@ class CallController extends Controller
     * @author Jake Sylvestre
     * get call length in seconds from minute:second form
     */
-    protected function getSecondsInCall($duration){
+    public function getSecondsInCall($duration){
         $time = $this->getMinutesHoursFromDuration($duration);
         return $time['minutes'] * 60 + $time['seconds'];
     }

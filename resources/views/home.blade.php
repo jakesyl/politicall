@@ -134,6 +134,17 @@
 </div>
       <!-- /.row -->
          <!-- /.box -->
-	<script> var negative = {{$negative}}; var positive = {{$positive}}; var neutral = {{$neutral}}; var pickup={{$pickup}}; var total = {{$total}};
-	</script>
+	<div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+	<script>
+	 var negative = {{$negative}};
+	 var positive = {{$positive}};
+	 var neutral = {{$neutral}};
+	 var pickup={{$pickup}};
+	 var total = {{$total}};
+
+	 var neutralScatter = {!! json_encode($scatterData->Neutral)!!};
+	 var positiveScatter = {!! json_encode($scatterData->Positive) !!};
+	 var negativeScatter = {!! json_encode($scatterData->Negative) !!};
+
+	 </script>
 @endsection

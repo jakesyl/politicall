@@ -19,6 +19,7 @@ class Calls extends Migration
             $table->boolean('pickup')->default(0);
             $table->string('name')->default('');
             $table->string('opinion')->default('Neutral');
+            $table->string('phone')->default('');
         });
 
     }

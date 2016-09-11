@@ -33,14 +33,14 @@
 						     <td>
 									 @if($opinions[$c] == "Neutral")
 									 		 <span class="label label-warning">
-									 		@elseif($opinions == "Positive")
+									 		@elseif($opinions[$c] == "Positive")
 									 		 <span class="label label-success">
-									 		@elseif($opinions == "Negative")
+									 		@elseif($opinions[$c] == "Negative")
 									 		<span class="label label-danger">
 									 	 @else
 									 	 <span class="label label-warning">
 									 		 @endif
-									 	{{ucfirst($call->opinion)}}
+									 	{{ucfirst($opinions[$c])}}
 
 								 </td>
                </tr>

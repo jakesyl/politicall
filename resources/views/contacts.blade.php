@@ -25,6 +25,7 @@
                </tr>
                </thead>
                <tbody>
+							<?php $c=0;?>
 							@foreach($contacts as $contact)
                <tr>
                  <td>{{$contact->phone}}</td>
@@ -43,8 +44,7 @@
 
 								 </td>
                </tr>
-							 <?php $c=0;?>
-
+							 <?php $c++;?>
 						@endforeach
 						</table>
 					</div>

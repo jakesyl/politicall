@@ -213,38 +213,5 @@
 		</div>
 		@endif
 {{--Start google maps--}}
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDwi20tN2TxroDYyvcSH2XNMlDXtDg3BaY"></script>
-<script type="text/javascript">
 
-	 var latitude;
-	 var longitude;
-		function GetLocation() {
-				var geocoder = new google.maps.Geocoder();
-				var address = document.getElementById("txtAddress").value;
-				geocoder.geocode({ 'address': address }, function (results, status) {
-						if (status == google.maps.GeocoderStatus.OK) {
-								latitude = results[0].geometry.location.lat();
-								longitude = results[0].geometry.location.lng();
-								drawChart();
-								return [latitude, longitude];
-								// latlongarr.push([latitude, longitude]);
-								// alert(latlongarr);
-						} else {
-								alert("Request failed.")
-						}
-				});
-		};
-	google.charts.load("current", {packages:["map"]});
-	google.charts.setOnLoadCallback(drawChart);
-	function drawChart() {
-		var data = google.visualization.arrayToDataTable([
-			['Lat', 'Long'],
-			[39.9522,-75.1932],
-		]);
-		data.addRow([latitude,longitude]);
-
-		var map = new google.visualization.Map(document.getElementById('map_div'));
-		map.draw(data, {showTip: true});
-	}
-</script>
 @endsection

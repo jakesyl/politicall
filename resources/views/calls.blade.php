@@ -37,6 +37,13 @@
                  <td> 4</td>
                  <td>X</td>
                </tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 
 	 </script>
 @endsection

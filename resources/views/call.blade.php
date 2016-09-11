@@ -21,7 +21,7 @@
 		                <div class="progress-bar" style="width: {{($callDurationSeconds/$averageLength) * 100}}"></div>
 		              </div>
 		                  <span class="progress-description">
-		                    {{($callDurationSeconds/$averageLength) * 100 }}% of the average length of a call (average length={{gmdate("i:s", $averageLength)}})
+		                    {{ number_format((float) (($callDurationSeconds/$averageLength) * 100), 2, '.', '') }}% of the average length of a call (average length={{gmdate("i:s", $averageLength)}})
 		                  </span>
 		            </div>
 		            <!-- /.info-box-content -->

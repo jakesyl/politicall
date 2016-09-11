@@ -22,14 +22,17 @@
                <tr>
                  <th>Volunteer</th>
                  <th>Target Phone Number</th>
+		 <th>Target Name</th>
                  <th>Reaction</th>
                </tr>
                </thead>
                <tbody>
 							@foreach($calls as $call)
                <tr>
-                 <td><a href="/call/{{$call->id}}">{{$volunteers[$call->callerId] }}</a></td>
+                 <td><a href="/call/{{$call->id}}">@if(isset($volunteers[$call->callerId])) {{$volunteers[$call->callerId] }} @else No Name  @endif</a></td>
                  <td><a href="/call/{{$call->id}}">{{$call->phone}}</a></td>
+		 <td><a href="/call/{{$call->id}}">{{$call->name}}</a></td>
+
 								 <td>@if($call->opinion == "Neutral")
 									 		<span class="label label-warning">
 										 @elseif($call->opinion == "Positive")

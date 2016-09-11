@@ -25,14 +25,14 @@
                </tr>
                </thead>
                <tbody>
+							<?php $c=0;?>
 							@foreach($contacts as $contact)
                <tr>
                  <td>{{$contact->phone}}</td>
 								 <td>{{$names[$c]}}</td>
 						     <td>{{$opinions[$c]}}</td>
                </tr>
-							 <?php $c=0;?>
-
+							 <?php $c++;?>
 						@endforeach
 						</table>
 					</div>

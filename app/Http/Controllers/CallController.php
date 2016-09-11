@@ -62,10 +62,12 @@ class CallController extends Controller
     * return one person who was not been called yet
     */
     public function toCall(){
-      return DB::table('contacts')
+      $contact =  DB::table('contacts')
         ->where('toCall', 0)
         ->first()
-	->toCall;
+	->phone;
+
+	return json_encode(['phone' => $contact]);
     }
 
 
@@ -181,6 +183,35 @@ class CallController extends Controller
     }
 
     public function index(){
-      return view('calls');
+      $calls = DB::table('calls')
+        ->get();
+
+      $volunteers = DB::table('volunteers')->get();
+      $volunteers = $this->sortByKey($volunteers);
+
+      return view('calls', ['calls' => $calls, 'volunteers' => $volunteers]);
+    }
+
+
+       /**
+        * @author Jake Sylvestre <jsylvestre@phishtrain.com>
+        * @param data to sort
+        * @param optional key, defaults to 'key'
+        * @param optional value, defaults to 'value'
+        * sort by key so you can use the keys as values
+        * so $var[x]->key = 'dog';becomes var->dog = 'value';
+        */
+       protected function sortByKey($data, $key='key', $value = 'value'){
+              $dictionary = array();
+              foreach($data as $item){
+                      $item = (array) $item;
+                      $dictionary[$item['id']] = $item['name'];
+              }
+              return (array) $dictionary;
+        }
+
+
+    public function getLeaderboard(){
+      return DB::select('select callerId, count(*)  from calls group by callerId order by 2 desc');
     }
 }

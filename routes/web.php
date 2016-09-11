@@ -27,3 +27,5 @@ Route::get('/api/toCall', 'CallController@toCall');
 Route::get('/call/{id}', 'CallController@getCall');
 Route::get('/api/average/{id}', 'CallController@getAverageCallLengthForUser');
 Route::get('/calls', 'CallController@index');
+
+Route::get('/api/leaderboard', 'CallController@getLeaderboard');

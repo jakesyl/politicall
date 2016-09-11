@@ -42,7 +42,7 @@
 
 						            <div class="info-box-content">
 						              <span class="info-box-text">Volunteers</span>
-						              <span class="info-box-number">{{count($volunteerCount)}}</span>
+						              <span class="info-box-number">{{$volunteerCount}}</span>
 						            </div>
 						            <!-- /.info-box-content -->
 						          </div>

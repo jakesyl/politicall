@@ -15,8 +15,8 @@ class adminAddContact extends Controller
 	}
 	public function addAContactGet(){
 		//$this->BsDataV(10);
-		$this->BsDataCo(10);
-		$this->BsDataCa(10);
+		//$this->BsDataCo(10);
+		//$this->BsDataCa(10);
 		return view('addContact');
 	}
 	public function BsDataV($num){

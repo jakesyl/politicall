@@ -29,3 +29,4 @@ Route::get('/api/average/{id}', 'CallController@getAverageCallLengthForUser');
 Route::get('/calls', 'CallController@index');
 
 Route::get('/api/leaderboard', 'CallController@getLeaderboard');
+Route::get('/lastCall', 'LastCall@getLastCall');

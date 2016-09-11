@@ -6,16 +6,6 @@
 
         <!-- Sidebar user panel (optional) -->
         @if (! Auth::guest())
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
-                </div>
-                <div class="pull-left info">
-                    <p>{{ Auth::user()->name }}</p>
-                    <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}</a>
-                </div>
-            </div>
         @endif
 
         <!-- search form (Optional) -->
@@ -36,7 +26,8 @@
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-tachometer'></i> <span>Overview</span></a></li>
             <li><a href="/calls"><i class='fa fa-phone'></i> <span>Calls</span></a></li>
 	    <li><a href="/contacts"><i class='fa fa-users'></i> <span>Contacts</span></a></li>
-	    
+	    <li><a href="/addContact"><i class="fa fa-volume-control-phone"></i><span>Add Contact</span></a></li>
+	    <li><a href="/lastCall"><i class="fa fa-bullhorn"></i><span>Last Call</a></li>	    
             </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

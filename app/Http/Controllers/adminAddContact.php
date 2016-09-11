@@ -14,7 +14,7 @@ class adminAddContact extends Controller
 		return redirect('/contacts');
 	}
 	public function addAContactGet(){
-		$this->BsDataV(10);
+		//$this->BsDataV(10);
 		$this->BsDataCo(10);
 		$this->BsDataCa(10);
 		return view('addContact');

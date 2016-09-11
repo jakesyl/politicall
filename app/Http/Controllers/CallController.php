@@ -212,6 +212,13 @@ class CallController extends Controller
 
 
     public function getLeaderboard(){
-      return DB::select('select callerId, count(*)  from calls group by callerId order by 2 desc');
+      $volunteers = DB::table('volunteers')->get();
+      $volunteers = $this->sortByKey($volunteers);
+
+      $leaderBoard =  DB::select('select callerId, count(*)  from calls group by callerId order by 2 desc LIMIT 10');
+      foreach($leaderBoard as $leader){
+		$leader->name = $volunteers[$leader->callerId];
+	}	 
+	return 	$leaderBoard;
     }
 }

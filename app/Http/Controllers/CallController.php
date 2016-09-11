@@ -62,10 +62,12 @@ class CallController extends Controller
     * return one person who was not been called yet
     */
     public function toCall(){
-      return DB::table('contacts')
+      $contact =  DB::table('contacts')
         ->where('toCall', 0)
         ->first()
-	->toCall;
+	->phone;
+
+	return json_encode(['phone' => $contact]);
     }
 
 

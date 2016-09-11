@@ -33,4 +33,12 @@
       } );
 </script>
 @endif
+@if(parse_url(Request::url())['path'] == '/contacts')
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+          $('#calls').DataTable();
+      } );
+</script>
+@endif
 </script>

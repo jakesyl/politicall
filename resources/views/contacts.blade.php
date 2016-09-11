@@ -6,14 +6,13 @@
 
 
 @section('main-content')
-
 <!-- Main content -->
    <section class="content">
      <div class="row">
        <div class="col-xs-12">
          <div class="box">
            <div class="box-header">
-             <h3 class="box-title">Hover Data Table</h3>
+             <h3 class="box-title">Contacts</h3>
            </div>
            <!-- /.box-header -->
            <div class="box-body">
@@ -22,18 +21,24 @@
                <tr>
                  <th>Phone Number</th>
                  <th>Name</th>
-                 <th>Opinion</th>
+								 <th>Opinion</th>
                </tr>
                </thead>
                <tbody>
-		<?php $c=0;?>
-		@foreach($contacts as $contact)
+							@foreach($contacts as $contact)
                <tr>
                  <td>{{$contact->phone}}</td>
-		 <td>{{$names[$c]}}</td>
-                 <td>{{$opinions[$c]}}</td>
-                 <?php $c++;?>
+								 <td>{{$names[$c]}}</td>
+						     <td>{{$opinions[$c]}}</td>
                </tr>
-		@endforeach
-	 </script>
+							 <?php $c=0;?>
+
+						@endforeach
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 @endsection

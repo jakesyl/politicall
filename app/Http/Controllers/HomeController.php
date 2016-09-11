@@ -95,4 +95,26 @@ class HomeController extends Controller
       return (object) $data;
 
     }
+    function getListOfContacts(){
+	$contacts=DB::table('contacts')->get();
+	$moods=array();
+	$names=array();
+	$c = 0;
+	foreach($contacts as $contact){
+		if(DB::table('calls')->where('phone',$contact->phone)->count() !=0){
+		$mood= DB::table('calls')->where('phone',$contact->phone)->orderBy('id', 'DESC')->first()->opinion;
+		$name= DB::table('calls')->where('phone',$contact->phone)->orderBy('id', 'DESC')->first()->name;
+		}
+		else{
+		$mood="unknown";
+		$name="unkown";
+		}
+		$moods[$c]=$mood;
+		$names[$c]=$name;
+		$c++;
+	
+	}
+	return view('contacts',['contacts'=>$contacts,'names'=>$names, 'opinions'=>$moods]);
+    }
+
 }

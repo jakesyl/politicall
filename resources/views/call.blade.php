@@ -212,4 +212,6 @@
 			</div>
 		</div>
 		@endif
+{{--Start google maps--}}
+
 @endsection

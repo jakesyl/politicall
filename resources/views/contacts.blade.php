@@ -20,30 +20,20 @@
              <table id="calls" class="table table-bordered table-hover">
                <thead>
                <tr>
-                 <th>Rendering engine</th>
-                 <th>Browser</th>
-                 <th>Platform(s)</th>
-                 <th>Engine version</th>
-                 <th>CSS grade</th>
+                 <th>Phone Number</th>
+                 <th>Name</th>
+                 <th>Opinion</th>
                </tr>
                </thead>
                <tbody>
+		<?php $c=0;?>
+		@foreach($contacts as $contact)
                <tr>
-                 <td>Trident</td>
-                 <td>Internet
-                   Explorer 4.0
-                 </td>
-                 <td>Win 95+</td>
-                 <td> 4</td>
-                 <td>X</td>
+                 <td>{{$contact->phone}}</td>
+		 <td>{{$names[$c]}}</td>
+                 <td>{{$opinions[$c]}}</td>
+                 <?php $c++;?>
                </tr>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-
+		@endforeach
 	 </script>
 @endsection

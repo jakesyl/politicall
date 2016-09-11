@@ -29,7 +29,19 @@
                <tr>
                  <td>{{$contact->phone}}</td>
 								 <td>{{$names[$c]}}</td>
-						     <td>{{$opinions[$c]}}</td>
+						     <td>
+									 @if($opinions[$c] == "Neutral")
+									 		 <span class="label label-warning">
+									 		@elseif($opinions == "Positive")
+									 		 <span class="label label-success">
+									 		@elseif($opinions == "Negative")
+									 		<span class="label label-danger">
+									 	 @else
+									 	 <span class="label label-warning">
+									 		 @endif
+									 	{{ucfirst($call->opinion)}}
+
+								 </td>
                </tr>
 							 <?php $c=0;?>
 

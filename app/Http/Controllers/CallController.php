@@ -183,4 +183,8 @@ class CallController extends Controller
     public function index(){
       return view('calls');
     }
+
+    public function getLeaderboard(){
+      return DB::select('select callerId, count(*)  from calls group by callerId order by 2 desc');
+    }
 }
